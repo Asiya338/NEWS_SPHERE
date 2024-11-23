@@ -1,0 +1,8 @@
+# Node modules
+node_modules/
+
+# Build outputs
+build/
+
+# Optional: Environment variables and other sensitive files
+.env
