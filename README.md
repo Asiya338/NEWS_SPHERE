@@ -35,28 +35,45 @@ This project utilizes the following technologies:
 - **Search Functionality**: Search for articles based on keywords specified.
 - **Markdown Notes**: Write your notes with title and coressponding description to refer further.
 - **User Authentication**: Users can log in and sign up to save their preferences.
-- **Home Navigation**: Navigate back to the homepage easily.
 - **Sharing Options**: Share articles via Facebook, Twitter, and LinkedIn.
 
 ## Installation
 
 To set up this project locally, follow these steps:
 
-- create folder name with News_Sphere
-- create sub-folders as client and server
-- in client create a react-app
-- then create coressponding components
-- add css using tailwind CSS or CSS
-- in server sub-folder
-- create server.js as main file
-- create ChatMessage to give DB schema
-- then fetch data from coressponding API, handle responses like fetch , get , post etc
-- this server runs at 5000 port
-- and store credentials in .env file
-- run client folder in one terminal as npm run dev
-- and run server folder in another terminal as server.js
-- open http://localhost:5173/to see frontend UI
-- and https://localhost:5000/all-news ..... for fetching data from API`s
+1. **Create Project Folders**:
+
+   - Create a folder named `News_Sphere`.
+   - Inside the `News_Sphere` folder, create two subfolders: `client` and `server`.
+
+2. **Frontend Setup**:
+
+   - Inside the `client` folder, create a React app.
+     ```bash
+     npx create-react-app .
+     ```
+   - Add your components in the React app.
+   - Install Tailwind CSS or use regular CSS for styling.
+
+3. **Backend Setup**:
+
+   - Inside the `server` folder, create a `server.js` file as the main server file.
+   - Create models for your database (e.g., `ChatMessage` schema).
+   - Implement API routes to fetch data from NewsAPI and OpenWeatherMap API.
+   - Set up the server to run on port 5000.
+   - Store credentials (like API keys) in a `.env` file.
+
+4. **Running the Application**:
+   - Run the client React app in one terminal:
+     ```bash
+     npm run dev
+     ```
+   - Run the server in another terminal:
+     ```bash
+     node server.js
+     ```
+   - Open the frontend at [http://localhost:5173](http://localhost:5173).
+   - Access the API at [http://localhost:5000/all-news](http://localhost:5000/all-news).
 
 ## DEMO-VIDEO
 
