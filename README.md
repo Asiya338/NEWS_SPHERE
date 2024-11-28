@@ -104,11 +104,15 @@ npm install express mysql mongoose dotenv axios cors body-parser
 
 ### **Step 5: Environment Variables**
 
-Create a .env file in the server folder and add your API keys:
+Create a .env file in the server folder and add your API keys , port:
 
 ```bash
 NEWS_API_KEY=your_newsapi_key
 WEATHER_API_KEY=your_openweathermap_key
+PORT=your_port
+MONGODB_URL=your_mongodb_url
+EMAIL_USER=your_email_USER
+EMAIL_PASSWORD=your_email_password_with_APP_PASSWORD(16 char)
 ```
 
 ### **Step 6: Database Configuration**
@@ -124,14 +128,16 @@ Start the backend server:
 
 ```bash
 node server.js
-Start the frontend app:
 ```
+
+Start the frontend app:
 
 ```bash
 npm start
 ```
 
-Access the frontend at http://localhost:3000
+Access the frontend at http://localhost:5173
+
 Access the backend API at http://localhost:5000
 
 ## **Usage**
