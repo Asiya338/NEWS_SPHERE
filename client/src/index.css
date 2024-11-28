@@ -26,17 +26,36 @@ body {
     --search-background: #000;
     --c: rgb(118, 49, 255);
     --hover_bg_change: backdrop-filter:6px;
+    input[type="text"]:focus , input[type="email"]:focus , textarea:focus{
+        outline: none;
+        border: 1px solid var(--heading); /* Highlight on focus */
+        box-shadow: 0 0 5px var(--heading); /* Optional: Subtle glow */
+    };
 }
 
 .dark-theme {
     --background: url("https://tailwindcss.com/_next/static/media/hero-dark@90.dba36cdf.jpg");
     --primary: rgb(30, 41, 59);
     --secondary: #D5DDF0;
-    --txt: #fff;
     --heading: #b72df8;
+    --txt :#fff;
     --btn-color: #000;
     --btn-background: #7325e7;
-    /*  --search-background: #18181b; */
+    
+    input[type="text"], input[type="email"] , textarea{
+        background-color: var(--search-background); /* Dark background for dark theme */
+        color: var(--txt); /* White text for dark mode */
+        border: 1px solid var(--secondary); /* Optional: Adds a border with good contrast */
+        padding: 0.5rem; /* Spacing for better usability */
+        border-radius: 5px; /* Rounded corners for better appearance */
+    };
+    
+    /* Add focus styles for better visibility */
+    input[type="text"]:focus , input[type="email"]:focus , textarea:focus{
+        outline: none;
+        border: 1px solid var(--heading); /* Highlight on focus */
+        box-shadow: 0 0 5px var(--heading); /* Optional: Subtle glow */
+    };
 }
 
 body {
@@ -88,6 +107,7 @@ ul li ul {
     box-shadow: 0px 3px 5px -1px var(--heading);
 }
 
+
 .down-arrow-icon {
     height: 16px;
     width: 16px;
@@ -131,8 +151,9 @@ ul li ul li a:hover {
 
 .ham-burger {
     display: none;
-    z-index: 100;
     cursor: pointer;
+    position: relative;
+    z-index: 1100;
 }
 
 .ham-burger:hover {
@@ -157,7 +178,7 @@ ul li ul li a:hover {
     background: var(--heading);
     display: block;
     margin: 5px 0;
-    transition: transform 1s, width 0.5s;
+    transition: transform 0.5s, width 0.5s, opacity 0.5s;
 }
 
 .checkbox {
@@ -329,7 +350,7 @@ footer {
 @media only screen and (min-width: 640px) and (max-width: 689px) {
     nav {
         justify-content: space-between !important;
-        padding: 0 0% !important;
+        padding: 20 0% !important;
     }
 
     nav ul {
@@ -356,19 +377,20 @@ footer {
         display: none;
         flex-direction: column;
         position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 100%;
+        top: 0;
+        left: 0;
+        width: 40%;
         height: calc(100vh - 70px);
         background-color: var(--primary);
-        z-index: 1;
-        padding: 25% 10%;
+        z-index: 1000;
+        padding: 15% 10%;
         transition: 0.3s;
     }
 
     nav ul.active {
         left: 0;
         display: flex;
+       
     }
 
 

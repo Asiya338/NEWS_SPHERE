@@ -1,80 +1,145 @@
-# News Sphere
+# **News Sphere**
 
-Welcome to **News Sphere**, a full-stack (MERN) News Application that provides users with the latest articles from various categories and sources, fetches Top-headlines form various categories like Health, Entertainment , Sports , General , Scientific etc.... powered by the [NewsAPI](https://newsapi.org) and also fetches weather details from openweathermap API based on city provided.
+Welcome to **News Sphere**, a comprehensive MERN stack application that keeps you informed with the latest news articles across various categories. With integration of the [NewsAPI](https://newsapi.org) and [OpenWeatherMap API](https://openweathermap.org/), it provides not only top news headlines but also real-time weather details based on user-provided city information.
 
-[![NEWS_SPHERE](https://i.postimg.cc/kMb02m8b/Screenshot-4.png)](https://postimg.cc/JtR6FSpr)
+[![NEWS_SPHERE](https://i.postimg.cc/NjCksj9N/Screenshot-5.png)](https://postimg.cc/fVX95ZvX)
 
-## Table of Contents
+---
+
+## **Table of Contents**
 
 - [Technologies Used](#technologies-used)
 - [Features](#features)
 - [Installation](#installation)
-- [demo-video](#demo-video)
+- [Usage](#usage)
 
-## Technologies Used
+---
 
-This project utilizes the following technologies:
+## **Technologies Used**
 
-- **Frontend:**
+### **Frontend**
 
-  - React
-  - Tailwind CSS
-  - CSS
+- React.js (Vite)
+- Tailwind CSS
+- Vanilla CSS
 
-- **Backend:**
-  - Node.js
-  - Express.js
-  - MySQL
-  - MongDB
+### **Backend**
 
-## Features
+- Node.js
+- Express.js
+- MongoDB
 
-- **Fetch Latest News**: Get the latest articles from various sources using the NewsAPI.
-- **Top Headlines**: View the top headlines from different categories as mentioned above.
-- **Country-wise News**: Access news articles filtered by country.
-- **Search Functionality**: Search for articles based on keywords specified.
-- **Markdown Notes**: Write your notes with title and coressponding description to refer further.
-- **User Authentication**: Users can log in and sign up to save their preferences.
-- **Sharing Options**: Share articles via Facebook, Twitter, and LinkedIn.
+### **APIs**
 
-## Installation
+- [NewsAPI](https://newsapi.org): For fetching the latest news articles and headlines.
+- [OpenWeatherMap API](https://openweathermap.org): For fetching weather details based on city input.
 
-To set up this project locally, follow these steps:
+---
 
-1. **Create Project Folders**:
+### **Features**
 
-   - Create a folder named `News_Sphere`.
-   - Inside the `News_Sphere` folder, create two subfolders: `client` and `server`.
+### **Core Features**
 
-2. **Frontend Setup**:
+- **Latest News**: Fetches the most recent articles from reliable sources.
+- **Top Headlines**: View top headlines categorized by topics like:
+  - Health
+  - Entertainment
+  - Sports
+  - General
+  - Science, and more.
+- **Country-Specific News**: Access news articles filtered by country.
+- **Search Functionality**: Search for articles using keywords.
 
-   - Inside the `client` folder, create a React app.
-     ```bash
-     npx create-react-app .
-     ```
-   - Add your components in the React app.
-   - Install Tailwind CSS or use regular CSS for styling.
+### **Additional Features**
 
-3. **Backend Setup**:
+- **Weather Updates**: Get live weather updates for any city using OpenWeatherMap API.
+- **Markdown Notes**: Create and store notes with titles and descriptions for future reference.
+- **Sharing Options**: Share interesting articles via : LinkedIn ...
 
-   - Inside the `server` folder, create a `server.js` file as the main server file.
-   - Create models for your database (e.g., `ChatMessage` schema).
-   - Implement API routes to fetch data from NewsAPI and OpenWeatherMap API.
-   - Set up the server to run on port 5000.
-   - Store credentials (like API keys) in a `.env` file.
+---
 
-4. **Running the Application**:
-   - Run the client React app in one terminal:
-     ```bash
-     npm run dev
-     ```
-   - Run the server in another terminal:
-     ```bash
-     node server.js
-     ```
-   - Open the frontend at [http://localhost:5173](http://localhost:5173).
-   - Access the API at [http://localhost:5000/all-news](http://localhost:5000/all-news).
+## **Installation**
 
-## DEMO-VIDEO
+### Prerequisites
 
-[News_Sphere](https://bit.ly/News_Sphere)
+- Node.js installed
+- MongoDB Atlas server
+- API keys for [NewsAPI](https://newsapi.org) and [OpenWeatherMap API](https://openweathermap.org)
+- get app passwords for Mail with 2 factor verification to allow users to send feedback
+
+### **Step:1 Clone the Repository**
+
+```bash
+git clone https://github.com/your-repo/News_Sphere.git
+cd News_Sphere
+```
+
+### **Step 2: Create Project Folders**
+
+```bash
+Create two folders:
+client: For the frontend React application
+server: For the backend API
+```
+
+### **Step 3: Frontend Setup**
+
+Navigate to the client folder and initialize the React app:
+
+```bash
+cd client
+npx create-react-app .
+Install Tailwind CSS or use your preferred styling method.
+```
+
+### **Step 4: Backend Setup**
+
+Navigate to the server folder and create a Node.js server:
+
+```bash
+cd server
+npm init -y
+npm install express mysql mongoose dotenv axios cors body-parser
+```
+
+### **Step 5: Environment Variables**
+
+Create a .env file in the server folder and add your API keys:
+
+```bash
+NEWS_API_KEY=your_newsapi_key
+WEATHER_API_KEY=your_openweathermap_key
+```
+
+### **Step 6: Database Configuration**
+
+```bash
+Set up MongoDB Atlas:
+For MongoDB, define models (e.g., for notes ).
+```
+
+### **Step 7: Start the Application**
+
+Start the backend server:
+
+```bash
+node server.js
+Start the frontend app:
+```
+
+```bash
+npm start
+```
+
+Access the frontend at http://localhost:3000
+Access the backend API at http://localhost:5000
+
+## **Usage**
+
+```bash
+Open the application in your browser.
+Browse top news headlines or search for articles.
+Check weather updates by entering your city.
+Use Markdown Notes to save and manage your notes.
+Share news articles directly from the app.
+```

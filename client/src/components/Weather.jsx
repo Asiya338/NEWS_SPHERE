@@ -1,6 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloudSun } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCloudSunRain,
+  faSun,
+  faCloud,
+  faBolt,
+  faSnowflake,
+  faSmog,
+  faCloudShowersHeavy,
+} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 const Weather = () => {
@@ -17,6 +25,24 @@ const Weather = () => {
     });
   };
 
+  const getWeatherIcon = (description) => {
+    const conditionIcons = {
+      Clear: faSun,
+      Clouds: faCloud,
+      Thunderstorm: faBolt,
+      Drizzle: faCloudShowersHeavy,
+      Rain: faCloudShowersHeavy,
+      Snow: faSnowflake,
+      Mist: faSmog,
+      Smoke: faSmog,
+      Haze: faSmog,
+      Fog: faSmog,
+    };
+
+    // Return the icon based on the main weather condition
+    return conditionIcons[description] || faCloudSunRain;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -29,8 +55,8 @@ const Weather = () => {
       if (response.data.success) {
         setWeatherData(response.data.data);
       }
-    } catch (err) {
-      setError("Failed to fetch weather data. Please try again.");
+    } catch (error) {
+      setError("Failed to fetch weather data. Please try again.", error);
     }
   };
 
@@ -41,10 +67,7 @@ const Weather = () => {
           <pre>
             <b> Weather Today!!! </b>
           </pre>
-          <FontAwesomeIcon
-            icon={faCloudSun}
-            style={{ color: "#f2083f", fontSize: "50px" }}
-          />
+          <FontAwesomeIcon icon={faCloudSunRain} style={{ fontSize: "50px" }} />
         </h2>
 
         <form onSubmit={handleSubmit} className="mt-4">
@@ -55,7 +78,7 @@ const Weather = () => {
             <input
               type="text"
               id="city"
-              placeholder="enter city , country name ..."
+              placeholder="Enter city, country name ..."
               value={city}
               onChange={(e) => setCity(e.target.value)}
               className="border border-gray-300 rounded-md p-2 w-full"
@@ -74,24 +97,42 @@ const Weather = () => {
 
         {weatherData && (
           <div className="mt-4">
-            <h3 className="text-lg font-bold  text-center hover:underline">
-              Weather Details of {city}:
+            <hr className="mt-3 mb-3" />
+            <h3 className="text-lg font-bold text-center hover:underline">
+              Weather Details of {city} :
             </h3>
+            <div className="text-center mb-4">
+              <h4>
+                <b>{weatherData.weather[0].main} &nbsp;</b>
+                <FontAwesomeIcon
+                  icon={getWeatherIcon(weatherData.weather[0].main)}
+                  style={{ fontSize: "40px", marginTop: "10px" }}
+                />
+              </h4>
+            </div>
             <p>
-              <b>Temperature:</b> {weatherData.main.temp} °C
+              <b>Temperature : </b> {weatherData.main.temp} °C
             </p>
             <p>
-              <b>Humidity: </b>
-              {weatherData.main.humidity} %
+              <b>Humidity : </b> {weatherData.main.humidity} %
             </p>
             <p>
-              <b>Outlook:</b> {weatherData.weather[0].description}
+              <b>Outlook : </b> {weatherData.weather[0].description}
             </p>
             <p>
-              <b>Sunrise:</b> {formatTime(weatherData.sys.sunrise)}
+              <b>Sunrise : </b> {formatTime(weatherData.sys.sunrise)}
             </p>
             <p>
-              <b>Sunset:</b> {formatTime(weatherData.sys.sunset)}
+              <b>Sunset : </b> {formatTime(weatherData.sys.sunset)}
+            </p>
+            <p>
+              <b>Current Time : </b>
+              {new Date().toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: true,
+              })}
             </p>
           </div>
         )}

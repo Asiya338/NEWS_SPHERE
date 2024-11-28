@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import countries from "./countries";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,7 +11,6 @@ import {
   faStickyNote,
   faCloudSunRain,
   faCommentDots,
-  faBookmark,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
@@ -45,7 +44,7 @@ function Header() {
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery) {
-      navigate(`/search?q=${searchQuery}`);
+      navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
       setSearchQuery("");
     }
   };
@@ -58,11 +57,12 @@ function Header() {
             icon={faGlobeAsia}
             style={{
               fontSize: "24px",
-              color: "#fb3412",
               marginRight: "5px",
             }}
           />
-          <h3 className="heading font-extrabold text-2xl ">News_Sphere</h3>
+          <Link to="/">
+            <h3 className="heading font-extrabold text-2xl ">News_Sphere</h3>
+          </Link>
         </div>
 
         <ul
@@ -169,7 +169,7 @@ function Header() {
             <Link to="/weather" className="text-white font-bold ">
               <FontAwesomeIcon
                 icon={faCloudSunRain}
-                style={{ color: "#f2083f", fontSize: "24px" }}
+                style={{ fontSize: "24px" }}
               />
             </Link>
           </li>
@@ -181,20 +181,14 @@ function Header() {
                 placeholder="Search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className={`border border-gray-300 rounded-md p-2 ${
-                  theme === "dark-theme"
-                    ? "bg-transparent text-white"
-                    : "bg-transparent text-black"
-                }`}
+                className={`border border-gray-300 rounded-md p-1
+                `}
               />
               <button
                 type="submit"
                 className="flex items-center justify-center bg-transparent border-none ml-2"
               >
-                <FontAwesomeIcon
-                  icon={faSearch}
-                  style={{ color: "#f2083f", fontSize: "24px" }}
-                />
+                <FontAwesomeIcon icon={faSearch} style={{ fontSize: "24px" }} />
               </button>
             </form>
           </li>
@@ -217,19 +211,6 @@ function Header() {
             </Link>
           </li>
 
-          {/* Login and Sign-Up Links */}
-          <li>
-            <Link to="/login" className="text-white font-bold changeonHover">
-              Login
-            </Link>
-          </li>
-          <li>
-            <Link to="/signup" className="text-white font-bold changeonHover">
-              Sign Up
-            </Link>
-          </li>
-          {/* Bookmarks Link */}
-
           {/* Theme Toggle Button */}
           <li>
             <button
@@ -246,8 +227,11 @@ function Header() {
 
         {/* Hamburger Icon */}
         <div
-          className={`ham-burger z-index-100 ${active ? "ham-open" : ""}`}
+          className={`ham-burger z-index-1100 ${active ? "ham-open" : ""}`}
           onClick={() => setActive(!active)}
+          aria-label={active ? "Close menu" : "Open menu"}
+          role="button"
+          tabIndex="0"
         >
           <span className="lines line-1"></span>
           <span className="lines line-2"></span>

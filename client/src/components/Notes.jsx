@@ -1,6 +1,6 @@
 // ChatRoom.js
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const Notes = () => {
   const [messages, setMessages] = useState([]);
@@ -38,15 +38,13 @@ const Notes = () => {
   };
 
   useEffect(() => {
-    // Fetch messages on component mount
     fetchMessages();
-    // Poll for new messages every 2 seconds
     const interval = setInterval(() => {
       fetchMessages();
     }, 2000);
 
     return () => clearInterval(interval);
-  }, []); // Run only once on mount
+  }, []);
 
   return (
     <div className="mt-20">

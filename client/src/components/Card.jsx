@@ -1,4 +1,3 @@
-import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark as solidBookmark } from "@fortawesome/free-solid-svg-icons";
 
@@ -6,7 +5,7 @@ function Card(props) {
   return (
     <div className="everything-card mt-10">
       <div className="everything-card flex flex-wrap p-5 gap-1 mb-1">
-        <b className="title">{props.title.substring(0, 70)}....</b>
+        <b className="title">{props?.title?.substring(0, 70)}....</b>
         <div className="everything-card-img mx-auto">
           <img className="everything-card-img" src={props.imgUrl} alt="img" />
         </div>
