@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Card from "./Card";
 import Loader from "./loader";
@@ -26,7 +26,7 @@ function TopHeadlines() {
     setError(null);
     const categoryParam = params.category ? `category=${params.category}` : "";
     fetch(
-      `http://localhost:5000/top-headlines?language=en&${categoryParam}&page=${page}&pageSize=${pageSize}`
+      `https://news-sphere-backend.onrender.com/top-headlines?language=en&${categoryParam}&page=${page}&pageSize=${pageSize}`
     )
       .then((response) => {
         if (response.ok) {

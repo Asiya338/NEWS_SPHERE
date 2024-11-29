@@ -14,11 +14,14 @@ const FeedbackForm = () => {
     setErrorMessage("");
 
     try {
-      const response = await axios.post("http://localhost:5000/feedback", {
-        name,
-        email,
-        feedback,
-      });
+      const response = await axios.post(
+        "https://news-sphere-backend.onrender.com/feedback",
+        {
+          name,
+          email,
+          feedback,
+        }
+      );
       if (response.data.success) {
         setSuccessMessage("Feedback sent successfully!");
         setName("");
@@ -26,7 +29,7 @@ const FeedbackForm = () => {
         setFeedback("");
       }
     } catch (error) {
-      setErrorMessage("Failed to send feedback. Please try again.");
+      setErrorMessage("Failed to send feedback. Please try again.", error);
     }
   };
 

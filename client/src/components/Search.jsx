@@ -24,7 +24,7 @@ function Search() {
     setError(null);
 
     fetch(
-      `http://localhost:5000/search?q=${query}&page=${page}&pageSize=${pageSize}`
+      `https://news-sphere-backend.onrender.com/search?q=${query}&page=${page}&pageSize=${pageSize}`
     )
       .then((response) => {
         if (response.ok) {
@@ -76,7 +76,7 @@ function Search() {
               />
             ))
           ) : (
-            <p>No articles found for the query: "{query}".</p>
+            <p>No articles found for the query: {query}.</p>
           )
         ) : (
           <Loader />

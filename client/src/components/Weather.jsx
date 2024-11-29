@@ -50,7 +50,9 @@ const Weather = () => {
 
     try {
       const response = await axios.get(
-        `http://localhost:5000/weather?city=${encodeURIComponent(city)}`
+        `https://news-sphere-backend.onrender.com/weather?city=${encodeURIComponent(
+          city
+        )}`
       );
       if (response.data.success) {
         setWeatherData(response.data.data);
