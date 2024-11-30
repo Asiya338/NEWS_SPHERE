@@ -9,9 +9,7 @@ const Notes = () => {
 
   const fetchMessages = async () => {
     try {
-      const response = await fetch(
-        "https://news-sphere-backend.onrender.com/messages"
-      );
+      const response = await fetch("http://localhost:5000/messages");
       const data = await response.json();
       setMessages(data);
     } catch (error) {
@@ -21,7 +19,7 @@ const Notes = () => {
 
   const sendMessage = async () => {
     try {
-      await fetch("https://news-sphere-backend.onrender.com/messages", {
+      await fetch("http://localhost:5000/messages", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

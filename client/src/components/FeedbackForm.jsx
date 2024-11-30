@@ -14,14 +14,11 @@ const FeedbackForm = () => {
     setErrorMessage("");
 
     try {
-      const response = await axios.post(
-        "https://news-sphere-backend.onrender.com/feedback",
-        {
-          name,
-          email,
-          feedback,
-        }
-      );
+      const response = await axios.post("http://localhost:5000/feedback", {
+        name,
+        email,
+        feedback,
+      });
       if (response.data.success) {
         setSuccessMessage("Feedback sent successfully!");
         setName("");
@@ -34,9 +31,9 @@ const FeedbackForm = () => {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-8 w-96 mx-auto mt-20">
+    <div className=" shadow-lg rounded-lg p-6 sm:p-2 mx-auto  w-80 max-w-md sm:w-50 mt-20">
       <h2 className="text-2xl font-bold text-center">Feedback Form</h2>
-      <form onSubmit={handleSubmit} className="mt-4">
+      <form onSubmit={handleSubmit} className="m-4">
         <div className="mb-4">
           <label className="block mb-2">Name: *</label>
           <input

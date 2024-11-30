@@ -22,9 +22,7 @@ function News() {
   useEffect(() => {
     setIsLoading(true);
     setError(null);
-    fetch(
-      `https://news-sphere-backend.onrender.com/all-news?page=${page}&pageSize=${pageSize}`
-    )
+    fetch(`http://localhost:5000/all-news?page=${page}&pageSize=${pageSize}`)
       .then((response) => {
         if (response.ok) {
           return response.json();

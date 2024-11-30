@@ -138,7 +138,7 @@ npm start
 
 Access the frontend at http://localhost:5173
 
-Access the backend API at http://localhost:5000
+Access the backend API at http://localhost:4000
 
 ## **Usage**
 

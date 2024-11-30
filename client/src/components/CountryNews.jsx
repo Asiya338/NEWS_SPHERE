@@ -20,7 +20,7 @@ const CountryNews = () => {
   useEffect(() => {
     setIsLoading(true);
     fetch(
-      `https://news-sphere-backend.onrender.com/country/:${params.iso}?&page=${page}&pageSize=${pageSize}`
+      `http://localhost:5000/country/:${params.iso}?&page=${page}&pageSize=${pageSize}`
     )
       .then((response) => {
         if (!response.ok) {

@@ -1,14 +1,14 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A server for handling feedback, notes messages, news, and weather updates from API",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node server.js"
+    "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Asiya Shaik",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.7.7",
@@ -20,5 +20,8 @@
     "mysql2": "^3.11.3",
     "nodemailer": "^6.9.15",
     "socket.io": "^4.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.16.0"
   }
 }

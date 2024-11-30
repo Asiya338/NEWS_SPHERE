@@ -26,7 +26,7 @@ function TopHeadlines() {
     setError(null);
     const categoryParam = params.category ? `category=${params.category}` : "";
     fetch(
-      `https://news-sphere-backend.onrender.com/top-headlines?language=en&${categoryParam}&page=${page}&pageSize=${pageSize}`
+      `http://localhost:5000/top-headlines?language=en&${categoryParam}&page=${page}&pageSize=${pageSize}`
     )
       .then((response) => {
         if (response.ok) {

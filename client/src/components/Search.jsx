@@ -24,7 +24,7 @@ function Search() {
     setError(null);
 
     fetch(
-      `https://news-sphere-backend.onrender.com/search?q=${query}&page=${page}&pageSize=${pageSize}`
+      `http://localhost:5000/search?q=${query}&page=${page}&pageSize=${pageSize}`
     )
       .then((response) => {
         if (response.ok) {
@@ -41,8 +41,10 @@ function Search() {
         }
       })
       .catch((error) => {
-        console.error("Fetch error:", error);
-        setError("Failed to fetch search results. Please try again later.");
+        setError(
+          "Failed to fetch search results. Please try again later.",
+          error
+        );
       })
       .finally(() => {
         setIsLoading(false);
@@ -76,7 +78,7 @@ function Search() {
               />
             ))
           ) : (
-            <p>No articles found for the query: {query}.</p>
+            <p>No articles found for the query : {query}</p>
           )
         ) : (
           <Loader />
