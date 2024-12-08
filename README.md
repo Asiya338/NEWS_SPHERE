@@ -2,7 +2,7 @@
 
 Welcome to **News Sphere**, a comprehensive MERN stack application that keeps you informed with the latest news articles across various categories. With integration of the [NewsAPI](https://newsapi.org) and [OpenWeatherMap API](https://openweathermap.org/), it provides not only top news headlines but also real-time weather details based on user-provided city information.
 
-[![NEWS_SPHERE](https://i.postimg.cc/NjCksj9N/Screenshot-5.png)](https://postimg.cc/fVX95ZvX)
+[![Screenshot-9.png](https://i.postimg.cc/pXpqjTqT/Screenshot-9.png)](https://postimg.cc/ZCz8tTkt)
 
 ---
 
